@@ -5,7 +5,10 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.send("Hello, Saya Allyssa");
+    res.send(`
+        <h1>Hello, Saya Allyssa</h1>
+        <button onclick="window.location.href='/form'">Pergi ke Form</button>
+    `);
 });
 
 app.get('/form', (req, res) => {
@@ -13,7 +16,7 @@ app.get('/form', (req, res) => {
         <form method="post" action="/form">
             Nama: <input type="text" name="name"><br>
             Email: <input type="text" name="email"><br>
-            <input type="submit" value="Submit">
+            <button type="submit">Submit</button>
         </form>
     `);
 });
